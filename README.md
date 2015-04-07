@@ -1,5 +1,7 @@
 # Trading
 
+[![Code Climate](https://codeclimate.com/github/dbalexandre/trading/badges/gpa.svg)](https://codeclimate.com/github/dbalexandre/trading)
+
 ## General project information
 
 ### Framework and language versions
