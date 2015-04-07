@@ -25,3 +25,7 @@ group :development, :test do
   gem "rspec-rails", "~> 3.2.1"
   gem "web-console", "~> 2.0"
 end
+
+group :test do
+  gem "shoulda-matchers", "~> 2.8.0"
+end
