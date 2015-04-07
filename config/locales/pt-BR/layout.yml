@@ -1,0 +1,5 @@
+pt-BR:
+  layout:
+    sign_in: "Login"
+    sign_out: "Logout"
+    sign_up: "Registre-se"
