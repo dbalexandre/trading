@@ -4,6 +4,7 @@ ruby "2.2.1"
 
 gem "rails", "4.2.1"
 
+gem "devise", "~> 3.4.1"
 gem "jquery-rails"
 gem "pg", "~> 0.18.1"
 gem "rack-timeout", "~> 0.2.1"
