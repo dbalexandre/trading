@@ -9,6 +9,7 @@ gem "jquery-rails"
 gem "pg", "~> 0.18.1"
 gem "rack-timeout", "~> 0.2.1"
 gem "sass-rails", "~> 5.0"
+gem "simple_form", "~> 3.1.0"
 gem "uglifier", ">= 1.3.0"
 
 group :production do
