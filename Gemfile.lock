@@ -49,6 +49,8 @@ GEM
       xpath (~> 2.0)
     cliver (0.3.2)
     coderay (1.1.0)
+    cpf_validator (0.2.1)
+      activemodel (>= 3.0)
     daemons (1.2.2)
     database_cleaner (1.4.1)
     debug_inspector (0.0.2)
@@ -215,6 +217,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara (~> 2.4.4)
+  cpf_validator (~> 0.2.1)
   database_cleaner (~> 1.4.1)
   devise (~> 3.4.1)
   dotenv-rails (~> 2.0.0)
