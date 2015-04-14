@@ -5,6 +5,7 @@ ruby "2.2.2"
 gem "rails", "4.2.1"
 
 gem "cpf_validator", "~> 0.2.1"
+gem "cnpj_validator", "~> 0.3.2"
 gem "devise", "~> 3.4.1"
 gem "jquery-rails"
 gem "pg", "~> 0.18.1"

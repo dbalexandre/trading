@@ -48,6 +48,8 @@ GEM
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
     cliver (0.3.2)
+    cnpj_validator (0.3.2)
+      activemodel (>= 3.0)
     coderay (1.1.0)
     cpf_validator (0.2.1)
       activemodel (>= 3.0)
@@ -217,6 +219,7 @@ PLATFORMS
 
 DEPENDENCIES
   capybara (~> 2.4.4)
+  cnpj_validator (~> 0.3.2)
   cpf_validator (~> 0.2.1)
   database_cleaner (~> 1.4.1)
   devise (~> 3.4.1)
