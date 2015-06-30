@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"
   <title>Trading</title>
   <%= stylesheet_link_tag "application", media: "all" %>
   <%= javascript_include_tag "application" %>
@@ -8,7 +11,10 @@
 </head>
 <body data-controller="<%= controller_name %>" data-action="<%= action_name %>">
   <%= render partial: "layouts/header" %>
-  <%= render partial: "layouts/flashes" %>
-  <%= yield %>
+
+  <div class="container" style="padding-top: 75px;">
+    <%= render partial: "layouts/flashes" %>
+    <%= yield %>
+  </div>
 </body>
 </html>
