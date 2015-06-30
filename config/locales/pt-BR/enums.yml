@@ -1,0 +1,6 @@
+pt-BR:
+  enumerize:
+    user:
+      personable_type:
+        company: "Jurídica"
+        individual: "Física"

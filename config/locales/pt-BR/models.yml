@@ -1,0 +1,19 @@
+pt-BR:
+  activerecord:
+    models:
+      user:
+        one: "Usuário"
+        other: "Usuários"
+    attributes:
+      user:
+        cnpj: "CNPJ"
+        corporate_name: "Razão Social"
+        cpf: "CPF"
+        email: "E-mail"
+        first_name: "Nome"
+        last_name: "Sobrenome"
+        password: "Senha"
+        password_confirmation: "Confirme sua senha"
+        personable_type: "Tipo de pessoa"
+        phone: "Telefone"
+        profile: "Perfil"
