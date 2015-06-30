@@ -2,11 +2,11 @@ source "https://rubygems.org"
 
 ruby "2.2.2"
 
-gem "rails", "4.2.1"
+gem "rails", "4.2.3"
 
 gem "cpf_validator", "~> 0.2.1"
 gem "cnpj_validator", "~> 0.3.2"
-gem "devise", "~> 3.4.1"
+gem "devise", "~> 3.5.1"
 gem "enumerize", "~> 0.11.0"
 gem "jquery-rails"
 gem "pg", "~> 0.18.1"
@@ -21,7 +21,7 @@ end
 
 group :production do
   gem "rails_12factor"
-  gem "unicorn", "~> 4.8.3"
+  gem "unicorn", "~> 4.9.0"
 end
 
 group :development do
@@ -31,7 +31,7 @@ end
 group :development, :test do
   gem "dotenv-rails", "~> 2.0.0"
   gem "pry-rails"
-  gem "rspec-rails", "~> 3.2.1"
+  gem "rspec-rails", "~> 3.3.2"
   gem "web-console", "~> 2.0"
 end
 
