@@ -8,7 +8,7 @@
 
 ### Framework and language versions
 - Rails Version: 4.2.1
-- Ruby Version: 2.2.1
+- Ruby Version: 2.2.2
 
 ### Branching model (more info [here](http://nvie.com/posts/a-successful-git-branching-model/))
 
