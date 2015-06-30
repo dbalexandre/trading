@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.feature "User sign out" do
-  let(:user) { create(:user, email: "john.doe@example.com") }
+  let(:user) { create(:user, :individual, email: "john.doe@example.com") }
 
   scenario "redirects to the home page" do
     sign_in user

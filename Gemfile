@@ -4,12 +4,20 @@ ruby "2.2.2"
 
 gem "rails", "4.2.1"
 
+gem "cpf_validator", "~> 0.2.1"
+gem "cnpj_validator", "~> 0.3.2"
 gem "devise", "~> 3.4.1"
+gem "enumerize", "~> 0.11.0"
 gem "jquery-rails"
 gem "pg", "~> 0.18.1"
 gem "rack-timeout", "~> 0.2.1"
 gem "sass-rails", "~> 5.0"
+gem "simple_form", "~> 3.1.0"
 gem "uglifier", ">= 1.3.0"
+
+source "https://rails-assets.org" do
+  gem "rails-assets-almond"
+end
 
 group :production do
   gem "rails_12factor"

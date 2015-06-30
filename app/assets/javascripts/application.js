@@ -12,4 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require almond
 //= require_tree .
+
+$(function() {
+  require("boot");
+});
