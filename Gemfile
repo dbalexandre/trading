@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby "2.2.2"
 
-gem "rails", "4.2.1"
+gem "rails", "4.2.3"
 
 gem "cpf_validator", "~> 0.2.1"
 gem "cnpj_validator", "~> 0.3.2"
