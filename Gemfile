@@ -31,7 +31,7 @@ end
 group :development, :test do
   gem "dotenv-rails", "~> 2.0.0"
   gem "pry-rails"
-  gem "rspec-rails", "~> 3.2.1"
+  gem "rspec-rails", "~> 3.3.2"
   gem "web-console", "~> 2.0"
 end
 
