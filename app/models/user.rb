@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
   store_accessor :profile, :first_name, :last_name, :corporate_name,
                            :cpf, :cnpj, :personable_type, :phone
 
+  has_many :bids, dependent: :destroy
+
   enumerize :personable_type, in: [:company, :individual], default: :individual
 
   validates :personable_type, :phone, presence: true
