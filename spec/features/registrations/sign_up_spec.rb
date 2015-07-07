@@ -23,7 +23,7 @@ RSpec.feature "User sign up" do
 
         click_button "Registre-se"
 
-        expect(current_path).to eq root_path
+        expect(current_path).to eq dashboard_path
         expect(page).to have_notice "Bem vindo! Você realizou seu registro com sucesso."
         expect(page).to have_content "acme@example.com"
       end
@@ -50,7 +50,7 @@ RSpec.feature "User sign up" do
 
         click_button "Registre-se"
 
-        expect(current_path).to eq root_path
+        expect(current_path).to eq dashboard_path
         expect(page).to have_notice "Bem vindo! Você realizou seu registro com sucesso."
         expect(page).to have_content "john.doe@example.com"
       end
