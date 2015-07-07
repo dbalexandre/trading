@@ -1,5 +1,9 @@
 pt-BR:
   enumerize:
+    bid:
+      payment_type:
+        cash: "A vísta"
+        installments: "Parcelado"
     user:
       personable_type:
         company: "Jurídica"

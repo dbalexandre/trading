@@ -1,10 +1,22 @@
 pt-BR:
   activerecord:
     models:
+      bid:
+        one: "Oferta"
+        other: "Ofertas"
       user:
         one: "Usuário"
         other: "Usuários"
     attributes:
+      bid:
+       city: "Cidade"
+       number_of_days: "Oferta ativa por"
+       payment_type: "Forma de pagamento"
+       price: "Preço"
+       product: "Produto"
+       quantity: "Quantidade"
+       state: "Estado"
+       user: "Usuário"
       user:
         cnpj: "CNPJ"
         corporate_name: "Razão Social"
