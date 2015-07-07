@@ -1,0 +1,11 @@
+<%= simple_form_for(@bid) do |f| %>
+  <%= f.input :product %>
+  <%= f.input :quantity, hint: "KG" %>
+  <%= f.input :price, hint: "R$/KG" %>
+  <%= f.input :city %>
+  <%= f.input :state %>
+  <%= f.input :payment_type, prompt: "Selecione a forma de pagamento" %>
+  <%= f.input :number_of_days, hint: "dias" %>
+
+  <%= f.button :submit, "Colocar a venda" %>
+<% end %>
