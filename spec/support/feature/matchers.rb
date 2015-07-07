@@ -5,7 +5,7 @@ module Feature
 
     matcher :have_alert do |alert|
       match do |page|
-        expect(page).to have_css(".flash-alert", text: alert)
+        expect(page).to have_css(".alert-danger", text: alert)
       end
 
       failure_message do |page|
@@ -19,7 +19,7 @@ module Feature
 
     matcher :have_notice do |notice|
       match do |page|
-        expect(page).to have_css(".flash-notice", text: notice)
+        expect(page).to have_css(".alert-success", text: notice)
       end
 
       failure_message do |page|

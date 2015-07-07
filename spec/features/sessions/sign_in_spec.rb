@@ -14,7 +14,7 @@ RSpec.feature "User sign in" do
       fill_in "E-mail", with: "john.doe@example.com"
       fill_in "Senha", with: "password"
 
-      click_button "Log in"
+      click_button "Login"
 
       expect(current_path).to eq root_path
       expect(page).to have_notice "Login efetuado com sucesso."
@@ -31,7 +31,7 @@ RSpec.feature "User sign in" do
       fill_in "E-mail", with: "foo@bar.com"
       fill_in "Senha", with: "wrong"
 
-      click_button "Log in"
+      click_button "Login"
 
       expect(page).to have_alert "Email ou senha inválidos."
     end

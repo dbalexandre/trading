@@ -1,9 +1,1 @@
-<% if flash.any? %>
-  <div id="flash">
-    <% flash.each do |key, value| -%>
-      <div class="flash-<%= key %>">
-        <span><%= value %></span>
-      </div>
-    <% end -%>
-  </div>
-<% end %>
+<%= bootstrap_flash %>

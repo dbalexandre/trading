@@ -14,5 +14,17 @@
  *= require_self
  */
 
-@import "bootstrap-sprockets"
-@import "bootstrap"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.float-none {
+  float: none;
+}
+
+.panel-heading {
+  padding: 15px;
+
+  h4 {
+    margin: 0;
+  }
+}

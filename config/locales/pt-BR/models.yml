@@ -9,6 +9,7 @@ pt-BR:
         cnpj: "CNPJ"
         corporate_name: "Razão Social"
         cpf: "CPF"
+        current_password: "Senha atual"
         email: "E-mail"
         first_name: "Nome"
         last_name: "Sobrenome"
@@ -17,3 +18,4 @@ pt-BR:
         personable_type: "Tipo de pessoa"
         phone: "Telefone"
         profile: "Perfil"
+        remember_me: Lembre-se de mim
