@@ -21,7 +21,7 @@ RSpec.feature "User sign up" do
         fill_in "Senha", with: "password", match: :prefer_exact
         fill_in "Confirme sua senha", with: "password", match: :prefer_exact
 
-        click_button "Sign up"
+        click_button "Registre-se"
 
         expect(current_path).to eq root_path
         expect(page).to have_notice "Bem vindo! Você realizou seu registro com sucesso."
@@ -48,7 +48,7 @@ RSpec.feature "User sign up" do
         fill_in "Senha", with: "password", match: :prefer_exact
         fill_in "Confirme sua senha", with: "password", match: :prefer_exact
 
-        click_button "Sign up"
+        click_button "Registre-se"
 
         expect(current_path).to eq root_path
         expect(page).to have_notice "Bem vindo! Você realizou seu registro com sucesso."
