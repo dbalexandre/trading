@@ -4,6 +4,11 @@ pt-BR:
       payment_type:
         cash: "A vista"
         forward: "A prazo"
+      product:
+        corn: "Milho"
+        sorghum: "Sorgo"
+        soy: "Soja"
+        wheat: "Trigo"
     user:
       personable_type:
         company: "Jurídica"
