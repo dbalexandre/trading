@@ -6,6 +6,7 @@ RSpec.describe Bid do
   end
 
   describe "validations" do
+    it { is_expected.to validate_presence_of(:area_type) }
     it { is_expected.to validate_presence_of(:city) }
     it { is_expected.to validate_presence_of(:number_of_days) }
     it { is_expected.to validate_presence_of(:payment_type) }

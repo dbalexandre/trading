@@ -23,6 +23,6 @@ class BidsController < ApplicationController
 
   def bid_params
     params.require(:bid).permit(:product, :quantity, :price, :city, :state,
-      :payment_type, :payment_term, :number_of_days)
+      :area_type, :payment_type, :payment_term, :number_of_days)
   end
 end
