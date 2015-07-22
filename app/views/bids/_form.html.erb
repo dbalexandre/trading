@@ -1,5 +1,5 @@
 <%= simple_form_for(@bid) do |f| %>
-  <%= f.input :product %>
+  <%= f.input :product, prompt: "Selecione o produto" %>
   <%= f.input :quantity, hint: "KG" %>
   <%= f.input :price, hint: "R$/KG" %>
   <%= f.input :city %>

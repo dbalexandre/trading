@@ -3,6 +3,7 @@ class Bid < ActiveRecord::Base
 
   belongs_to :user, required: true
 
+  enumerize :product, in: [:corn, :soy, :wheat, :sorghum]
   enumerize :payment_type, in: [:cash, :forward]
 
   validates :user, :product, :quantity, :price, :city, :state,
