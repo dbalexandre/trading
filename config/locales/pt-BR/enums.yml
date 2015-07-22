@@ -12,6 +12,13 @@ pt-BR:
         sorghum: "Sorgo"
         soy: "Soja"
         wheat: "Trigo"
+      status:
+        available: "Disponível"
+        released: "Faturado"
+        delivered: "Entregue"
+        progress: "Oferta(s) realizada"
+        paid: "Pagamento realizado"
+        purchased: "Compra realizada"
     user:
       personable_type:
         company: "Jurídica"

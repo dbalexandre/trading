@@ -18,6 +18,7 @@ pt-BR:
         product: "Produto"
         quantity: "Quantidade"
         state: "Estado"
+        status: "Status"
         unpaved_road: "Estrada sem pavimentação"
         user: "Usuário"
       user:

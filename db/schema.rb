@@ -11,25 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150722005757) do
+ActiveRecord::Schema.define(version: 20150722013338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bids", force: :cascade do |t|
-    t.integer  "user_id",                                 null: false
-    t.string   "product",                                 null: false
-    t.decimal  "quantity",       precision: 13, scale: 3, null: false
-    t.decimal  "price",          precision: 12, scale: 2, null: false
-    t.string   "city",                                    null: false
-    t.string   "state",                                   null: false
-    t.string   "payment_type",                            null: false
-    t.integer  "number_of_days",                          null: false
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.integer  "user_id",                                                       null: false
+    t.string   "product",                                                       null: false
+    t.decimal  "quantity",       precision: 13, scale: 3,                       null: false
+    t.decimal  "price",          precision: 12, scale: 2,                       null: false
+    t.string   "city",                                                          null: false
+    t.string   "state",                                                         null: false
+    t.string   "payment_type",                                                  null: false
+    t.integer  "number_of_days",                                                null: false
+    t.datetime "created_at",                                                    null: false
+    t.datetime "updated_at",                                                    null: false
     t.integer  "payment_term"
     t.string   "area_type"
     t.integer  "unpaved_road"
+    t.string   "status",                                  default: "available", null: false
   end
 
   add_index "bids", ["user_id"], name: "index_bids_on_user_id", using: :btree
