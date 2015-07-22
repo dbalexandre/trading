@@ -1,7 +1,7 @@
 class BidsController < ApplicationController
   layout "dashboard"
 
-  def index
+  def available
     @bids = Bid.most_recent.available(current_user)
   end
 
