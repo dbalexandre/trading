@@ -1,0 +1,73 @@
+<% @bids.each do |bid| %>
+  <div class="row" style="border: 1px solid #ddd; padding: 20px 10px;">
+    <div class="col-md-3">
+      <ul style="list-style-type: none; margin-left: -40px;">
+        <li>
+          <b>Produto:</b> <%= bid.product_text %>
+        </li>
+        <li>
+          <b>Preço:</b> <%= number_to_currency(bid.price, unit: "R$/KG") %>
+        </li>
+        <li>
+          <b>Quantidade:</b> <%= bid.quantity %> KG
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-9" style="border-left: 1px solid #ddd;">
+      <div class="row">
+        <div class="col-md-5">
+          <ul style="list-style-type: none; margin-left: -30px;">
+            <li>
+              <b>Publicado em:</b> <%= I18n.l(bid.created_at.to_date) %>
+            </li>
+            <li>
+              <b>Tempo restante:</b> <%= distance_of_time_in_words_to_now(bid.created_at + bid.number_of_days.days) %>
+            </li>
+            <li>
+              <b>Ofertas:</b> <span class="badge">42</span>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-5">
+          <textarea class="form-control" rows="3" placeholder="Mensagens"></textarea>
+        </div>
+        <div class="col-md-2">
+          <a class="btn btn-sm btn-block btn-success" href="#" role="button">Vender Agora</a>
+          <a class="btn btn-sm btn-block btn-danger" href="#" role="button">Cancelar</a>
+        </div>
+      </div>
+      <div class="row" style="margin-top: 25px;">
+        <div class="col-md-12">
+          <div class="checkout">
+            <div class="checkout-row">
+              <div class="checkout-step">
+                <button type="button" class="btn btn-primary btn-circle">1</button>
+                <p>Disponível</p>
+              </div>
+              <div class="checkout-step">
+                <button type="button" class="btn btn-default btn-circle">1</button>
+                <p>Oferta realizada</p>
+              </div>
+              <div class="checkout-step">
+                <button type="button" class="btn btn-default btn-circle">2</button>
+                <p>Compra realizada</p>
+              </div>
+              <div class="checkout-step">
+                <button type="button" class="btn btn-default btn-circle">3</button>
+                <p>Pagamento realizado</p>
+              </div>
+              <div class="checkout-step">
+                <button type="button" class="btn btn-default btn-circle">4</button>
+                <p>Faturado</p>
+              </div>
+              <div class="checkout-step">
+                <button type="button" class="btn btn-default btn-circle">5</button>
+                <p>Entregue</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

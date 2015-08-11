@@ -97,3 +97,49 @@ body {
 .centered {
   text-align: center;
 }
+
+.checkout-step p {
+  margin-top: 10px;
+}
+
+.checkout-row {
+  display: table-row;
+}
+
+.checkout {
+  display: table;
+  position: relative;
+  width: 100%;
+}
+
+.checkout-step button[disabled] {
+  filter: alpha(opacity=100) !important;
+  opacity: 1 !important;
+}
+
+.checkout-row:before {
+  background-color: #ccc;
+  bottom: 0;
+  content: " ";
+  height: 1px;
+  position: absolute;
+  top: 14px;
+  width: 100%;
+  z-order: 0;
+}
+
+.checkout-step {
+  display: table-cell;
+  position: relative;
+  text-align: center;
+}
+
+.btn-circle {
+  border-radius: 15px;
+  font-size: 12px;
+  height: 30px;
+  line-height: 1.428571429;
+  padding: 6px 0;
+  text-align: center;
+  width: 30px;
+}

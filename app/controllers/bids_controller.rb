@@ -5,6 +5,10 @@ class BidsController < ApplicationController
     @bids = Bid.most_recent.available(current_user)
   end
 
+  def index
+    @bids = current_user.bids.most_recent
+  end
+
   def new
     @bid = current_user.bids.build
   end
