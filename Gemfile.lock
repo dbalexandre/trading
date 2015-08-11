@@ -75,7 +75,7 @@ GEM
     dotenv-rails (2.0.2)
       dotenv (= 2.0.2)
       railties (~> 4.0)
-    enumerize (0.11.0)
+    enumerize (1.0.0)
       activesupport (>= 3.2)
     erubis (2.7.0)
     eventmachine (1.0.7)
@@ -233,7 +233,7 @@ DEPENDENCIES
   database_cleaner (~> 1.4.1)
   devise (~> 3.5.1)
   dotenv-rails (~> 2.0.0)
-  enumerize (~> 0.11.0)
+  enumerize (~> 1.0)
   factory_girl_rails (~> 4.5.0)
   jquery-rails
   pg (~> 0.18.1)
