@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   get "dashboard", to: "dashboards#show"
 
-  resources :bids, only: [:index, :new, :create]
+  resources :bids, only: [:index, :new, :create] do
+    get :available, on: :collection
+  end
 
   root to: "home#index"
 end

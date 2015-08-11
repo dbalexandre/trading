@@ -6,6 +6,7 @@ class Bid < ActiveRecord::Base
   enumerize :area_type, in: [:urban, :rural]
   enumerize :payment_type, in: [:cash, :forward]
   enumerize :product, in: [:corn, :soy, :wheat, :sorghum]
+  enumerize :status, in: [:available, :progress, :purchased, :paid, :released, :delivered], default: :available
 
   validates :user, :product, :quantity, :price, :city, :state,
             :area_type, :payment_type, :number_of_days, presence: true
