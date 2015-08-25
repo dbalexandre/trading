@@ -3,7 +3,7 @@ class Bid < ActiveRecord::Base
 
   belongs_to :user, required: true
 
-  has_many :orders
+  has_many :orders, dependent: :destroy
 
   enumerize :area_type, in: [:urban, :rural]
   enumerize :payment_type, in: [:cash, :forward]

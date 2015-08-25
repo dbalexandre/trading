@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150825013108) do
+ActiveRecord::Schema.define(version: 20150825023445) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20150825013108) do
     t.string   "area_type"
     t.integer  "unpaved_road"
     t.string   "status",                                  default: "available", null: false
+    t.integer  "orders_count"
   end
 
   add_index "bids", ["user_id"], name: "index_bids_on_user_id", using: :btree

@@ -24,7 +24,7 @@
               <b>Tempo restante:</b> <%= distance_of_time_in_words_to_now(bid.created_at + bid.number_of_days.days) %>
             </li>
             <li>
-              <b>Ofertas:</b> <span class="badge"><%= bid.orders.count %></span>
+              <b>Ofertas:</b> <span class="badge"><%= bid.orders_count %></span>
             </li>
           </ul>
         </div>

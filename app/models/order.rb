@@ -3,7 +3,7 @@ class Order < ActiveRecord::Base
 
   enumerize :status, in: [:interest, :closed, :purchased], default: :interest
 
-  belongs_to :bid, required: true
+  belongs_to :bid, counter_cache: true, required: true
   belongs_to :user, required: true
 
   validates :status, presence: true
