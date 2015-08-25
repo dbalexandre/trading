@@ -19,7 +19,7 @@ class Bid < ActiveRecord::Base
   validates :payment_term, numericality: { only_integer: true, greater_than_or_equal_to: 1 }, if: :forward?
   validates :unpaved_road, numericality: { only_integer: true, greater_than_or_equal_to: 0 }, if: :rural_area?
 
-  scope :available, ->(user) { where.not(user: user) }
+  scope :available, ->(user) { where.not(user: user).joins(:orders).merge(Order.where.not(user: user)) }
   scope :most_recent, -> { order(created_at: :desc) }
 
   def forward?
