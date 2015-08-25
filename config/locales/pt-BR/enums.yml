@@ -19,6 +19,11 @@ pt-BR:
         progress: "Oferta(s) realizada"
         paid: "Pagamento realizado"
         purchased: "Compra realizada"
+    order:
+      status:
+        closed: "Fechada"
+        interest: "Interesse de compra"
+        purchased: "Compra realizada"
     user:
       personable_type:
         company: "Jurídica"

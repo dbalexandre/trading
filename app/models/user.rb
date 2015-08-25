@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
                            :cpf, :cnpj, :personable_type, :phone
 
   has_many :bids, dependent: :destroy
+  has_many :orders, dependent: :destroy
 
   enumerize :personable_type, in: [:company, :individual], default: :individual
 

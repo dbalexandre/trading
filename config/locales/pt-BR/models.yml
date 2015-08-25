@@ -4,6 +4,9 @@ pt-BR:
       bid:
         one: "Oferta"
         other: "Ofertas"
+      order:
+        one: "Inteção de Compra"
+        other: "Intenções de Compra"
       user:
         one: "Usuário"
         other: "Usuários"
@@ -21,6 +24,8 @@ pt-BR:
         status: "Status"
         unpaved_road: "Estrada sem pavimentação"
         user: "Usuário"
+      order:
+        status: "Status"
       user:
         cnpj: "CNPJ"
         corporate_name: "Razão Social"

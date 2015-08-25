@@ -3,6 +3,8 @@ class Bid < ActiveRecord::Base
 
   belongs_to :user, required: true
 
+  has_many :orders
+
   enumerize :area_type, in: [:urban, :rural]
   enumerize :payment_type, in: [:cash, :forward]
   enumerize :product, in: [:corn, :soy, :wheat, :sorghum]
