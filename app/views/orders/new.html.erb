@@ -1,0 +1,43 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4>Quero Comprar</h4>
+  </div>
+
+  <div class="panel-body">
+    <%= simple_form_for([@bid, @order]) do |f| %>
+      <ul style="list-style-type: none; margin-left: -40px;">
+        <li>
+          <b>Avaliação do vendedor:</b> <span class="btn btn-xs btn-success">Alta</span>
+        </li>
+        <li>
+          <b>Produto:</b> <%= @bid.product_text %>
+        </li>
+        <li>
+          <b>Data da oferta:</b> <%= I18n.l(@bid.created_at.to_date) %>
+        </li>
+        <li>
+          <b>Tempo para término da oferta:</b> <%= distance_of_time_in_words_to_now(@bid.created_at + @bid.number_of_days.days) %>
+        </li>
+        <li>
+          <b>Quantidade de interessados:</b> <span class="badge"><%= @bid.orders.count %></span>
+        </li>
+        <li>
+          <b>Cidade:</b> <%= @bid.city %>
+        </li>
+        <li>
+          <b>Estado:</b> <%= @bid.state %>
+        </li>
+        <li>
+          <b>Quantidade:</b> <%= @bid.quantity %> KG
+        </li>
+        <li>
+          <b>Preço para retirar:</b> <%= number_to_currency(@bid.price, unit: "R$/KG") %>
+        </li>
+      </ul>
+
+      <%= f.button :submit, "Comprar", class: "btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+
