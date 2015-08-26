@@ -21,9 +21,12 @@ pt-BR:
         purchased: "Compra realizada"
     order:
       status:
-        closed: "Fechada"
-        interest: "Interesse de compra"
+        delivered: "Entregue"
+        open: "Feito oferta"
+        paid: "Pagamento realizado"
         purchased: "Compra realizada"
+        purchased: "Compra realizada"
+        released: "Faturado"
     user:
       personable_type:
         company: "Jurídica"

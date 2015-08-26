@@ -4,6 +4,7 @@ ruby "2.2.2"
 
 gem "rails", "4.2.3"
 
+gem "active_model_serializers", "~> 0.10.0.rc2"
 gem "autoprefixer-rails"
 gem "bootstrap-sass", "~> 3.3.5.1"
 gem "cpf_validator", "~> 0.2.1"
@@ -19,6 +20,8 @@ gem "uglifier", ">= 1.3.0"
 
 source "https://rails-assets.org" do
   gem "rails-assets-almond"
+  gem "rails-assets-handlebars"
+  gem "rails-assets-lodash"
 end
 
 group :production do

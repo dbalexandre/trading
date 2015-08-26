@@ -14,8 +14,8 @@ class OrdersController < ApplicationController
     @bid = Bid.find(params[:bid_id])
     @order = current_user.orders.build(bid: @bid)
 
-    if @order.save
-      redirect_to bids_path, notice: "Compra realizada com sucesso."
+    if @order.save && @bid.progress!
+      redirect_to bids_path, notice: "Oferta realizada com sucesso."
     else
       render :new
     end

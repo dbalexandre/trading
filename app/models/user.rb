@@ -18,6 +18,10 @@ class User < ActiveRecord::Base
   validates :cpf, cpf: true, if: :individual?
   validates :cnpj, cnpj: true, if: :company?
 
+  def full_name
+    "#{first_name} #{last_name}"
+  end
+
   private
 
   def company?

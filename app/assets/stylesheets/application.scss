@@ -144,6 +144,41 @@ body {
   width: 30px;
 }
 
+.bid + .bid,
 .order + .order {
   margin-top: 20px;
+}
+
+.message {
+  padding: 10px;
+  background-color: #f8f8f8;
+  border: 1px solid #e7e7e7;
+  border-radius: 4px;
+  margin-left: 0px;
+
+  .author {
+    color: #b9b9b9;
+    display: block;
+    font-size: 0.8em;
+    text-align: center;
+    padding-top: 5px;
+    width: 100%;
+  }
+
+  .sent-at {
+    font-size: 0.8em;
+    color: #b9b9b9;
+    padding-left: 15px;
+    padding-top: 5px;
+    display: block;
+    width: 100%;
+  }
+
+  .text {
+    padding-left: 15px;
+  }
+}
+
+.message + .message {
+  margin-top: 10px;
 }

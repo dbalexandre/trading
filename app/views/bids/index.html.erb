@@ -1,73 +1,90 @@
-<% @bids.each do |bid| %>
-  <div class="row" style="border: 1px solid #ddd; padding: 20px 10px;">
-    <div class="col-md-3">
-      <ul style="list-style-type: none; margin-left: -40px;">
-        <li>
-          <b>Produto:</b> <%= bid.product_text %>
-        </li>
-        <li>
-          <b>Preço:</b> <%= number_to_currency(bid.price, unit: "R$/KG") %>
-        </li>
-        <li>
-          <b>Quantidade:</b> <%= bid.quantity %> KG
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-9" style="border-left: 1px solid #ddd;">
-      <div class="row">
-        <div class="col-md-5">
-          <ul style="list-style-type: none; margin-left: -30px;">
-            <li>
-              <b>Publicado em:</b> <%= I18n.l(bid.created_at.to_date) %>
-            </li>
-            <li>
-              <b>Tempo restante:</b> <%= distance_of_time_in_words_to_now(bid.created_at + bid.number_of_days.days) %>
-            </li>
-            <li>
-              <b>Ofertas:</b> <span class="badge"><%= bid.orders_count %></span>
-            </li>
-          </ul>
-        </div>
-        <div class="col-md-5">
-          <textarea class="form-control" rows="3" placeholder="Mensagens"></textarea>
-        </div>
-        <div class="col-md-2">
-          <a class="btn btn-sm btn-block btn-success" href="#" role="button">Vender Agora</a>
-          <a class="btn btn-sm btn-block btn-danger" href="#" role="button">Cancelar</a>
-        </div>
+<% if @bids.any? %>
+  <% @bids.each do |bid| %>
+    <div data-bid-id="<%= bid.id %>" class="row bid" style="border: 1px solid #ddd; padding: 20px 10px;">
+      <div class="col-md-3">
+        <ul style="list-style-type: none; margin-left: -40px;">
+          <li>
+            <b>Produto:</b> <%= bid.product_text %>
+          </li>
+          <li>
+            <b>Preço:</b> <%= number_to_currency(bid.price, unit: "R$/KG") %>
+          </li>
+          <li>
+            <b>Quantidade:</b> <%= number_with_precision(bid.quantity, precision: 2) %> KG
+          </li>
+        </ul>
       </div>
-      <div class="row" style="margin-top: 25px;">
-        <div class="col-md-12">
-          <div class="checkout">
-            <div class="checkout-row">
-              <div class="checkout-step">
-                <button type="button" class="btn btn-primary btn-circle">1</button>
-                <p>Disponível</p>
+      <div class="col-md-9" style="border-left: 1px solid #ddd;">
+        <div class="row">
+          <div class="col-md-10">
+            <ul style="list-style-type: none; margin-left: -30px;">
+              <li>
+                <b>Publicado em:</b> <%= I18n.l(bid.created_at.to_date) %>
+              </li>
+              <li>
+                <b>Tempo restante:</b>
+                <% if bid.created_at + bid.number_of_days.days > Time.now %>
+                  <%= distance_of_time_in_words_to_now(bid.created_at + bid.number_of_days.days) %>
+                <% else %>
+                  Encerrado
+                <% end %>
+              </li>
+              <li>
+                <b>Ofertas:</b> <span class="badge"><%= bid.orders_count %></span>
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <% if bid.progress? %>
+              <a class="btn btn-sm btn-block btn-success" href="#" role="button">Vender Agora</a>
+            <% end %>
+
+            <% if bid.available? || bid.progress? %>
+              <a class="btn btn-sm btn-block btn-danger" href="#" role="button">Cancelar</a>
+            <% end %>
+          </div>
+        </div>
+        <div class="row" style="margin-top: 25px;">
+          <div class="col-md-12">
+            <div class="checkout" style="margin-top: 20px; margin-bottom: 20px;">
+              <div class="checkout-row">
+                <% Bid.status.values.each_with_index do |status, index| %>
+                  <div class="checkout-step">
+                    <% if bid.public_send("#{status}?") %>
+                      <span class="btn btn-circle btn-primary"><%= index + 1 %></span>
+                    <% else %>
+                      <span class="btn btn-circle btn-default"><%= index + 1 %></span>
+                    <% end %>
+
+                    <p><%= I18n.t("enumerize.bid.status.#{status}") %></p>
+                  </div>
+                <% end %>
               </div>
-              <div class="checkout-step">
-                <button type="button" class="btn btn-default btn-circle">1</button>
-                <p>Oferta realizada</p>
-              </div>
-              <div class="checkout-step">
-                <button type="button" class="btn btn-default btn-circle">2</button>
-                <p>Compra realizada</p>
-              </div>
-              <div class="checkout-step">
-                <button type="button" class="btn btn-default btn-circle">3</button>
-                <p>Pagamento realizado</p>
-              </div>
-              <div class="checkout-step">
-                <button type="button" class="btn btn-default btn-circle">4</button>
-                <p>Faturado</p>
-              </div>
-              <div class="checkout-step">
-                <button type="button" class="btn btn-default btn-circle">5</button>
-                <p>Entregue</p>
-              </div>
+            </div>
+          </div>
+          <div class="col-md-3 pull-right">
+            <a class="btn btn-sm btn-block btn-info" data-action="show-messages">Exibir mensagens</a>
+            <a class="btn btn-sm btn-block btn-info" style="display: none;" data-action="hide-messages">Ocultar mensagens</a>
+          </div>
+          <div class="col-md-12" style="display: none; margin-top: 20px;" data-wrapper="messages">
+            <%= render(bid.messages) %>
+
+            <div class="col-md-12" style="padding-left: 0px; padding-right: 0px; padding-top: 10px;">
+              <textarea class="form-control" name="text" rows="3" placeholder="Digite sua mensagem"></textarea>
+            </div>
+
+            <%= handlebars "message-template" do %>
+              <%= render "messages/template" %>
+            <% end %>
+
+            <div class="col-md-2 pull-right" style="margin-top: 10px; margin-right: -15px;">
+              <a class="btn btn-sm btn-block btn-primary" data-action="save-message">Enviar</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  <% end %>
+<% else %>
+  <%= content_tag(:p, "Nenhuma venda realizada.", class: "centered") %>
 <% end %>

@@ -1,0 +1,85 @@
+<div data-bid-id="<%= order.bid_id %>" class="row order" style="border: 1px solid #ddd; padding: 20px 10px;">
+  <div class="col-md-3">
+    <ul style="list-style-type: none; margin-left: -40px;">
+      <li>
+        <b>Produto:</b> <%= order.bid_product_text %>
+      </li>
+      <li>
+        <b>Preço:</b> <%= number_to_currency(order.bid_price, unit: "R$/KG") %>
+      </li>
+      <li>
+        <b>Quantidade:</b> <%= number_with_precision(order.bid_quantity, precision: 2) %> KG
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-9" style="border-left: 1px solid #ddd;">
+    <div class="row">
+      <div class="col-md-10">
+        <ul style="list-style-type: none; margin-left: -25px;">
+          <li>
+            <b>Publicado em:</b> <%= I18n.l(order.bid_created_at.to_date) %>
+          </li>
+          <li>
+            <b>Tempo restante:</b>
+            <% if order.bid_created_at + order.bid_number_of_days.days > Time.now %>
+              <%= distance_of_time_in_words_to_now(order.bid_created_at + order.bid_number_of_days.days) %>
+            <% else %>
+              Encerrado
+            <% end %>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-2">
+        <% if order.open? %>
+          <a class="btn btn-sm btn-block btn-danger" href="#" role="button">Cancelar</a>
+        <% end %>
+
+        <% if order.purchased? %>
+          <a class="btn btn-sm btn-block btn-success" href="#" role="button">Realizar pagamento</a>
+        <% end %>
+
+        <% if order.delivered? %>
+          <a class="btn btn-sm btn-block btn-info" href="#" role="button">Avaliar negociação</a>
+        <% end %>
+      </div>
+    </div>
+    <div class="row" style="margin-top: 25px;">
+      <div class="col-md-12">
+        <div class="checkout" style="margin-top: 20px; margin-bottom: 20px;">
+          <div class="checkout-row">
+            <% Order.status.values.each_with_index do |status, index| %>
+              <div class="checkout-step">
+                <% if order.public_send("#{status}?") %>
+                  <span class="btn btn-circle btn-primary"><%= index + 1 %></span>
+                <% else %>
+                  <span class="btn btn-circle btn-default"><%= index + 1 %></span>
+                <% end %>
+
+                <p><%= I18n.t("enumerize.order.status.#{status}") %></p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3 pull-right">
+        <a class="btn btn-sm btn-block btn-info" data-action="show-messages">Exibir mensagens</a>
+        <a class="btn btn-sm btn-block btn-info" style="display: none;" data-action="hide-messages">Ocultar mensagens</a>
+      </div>
+      <div class="col-md-12" style="display: none; margin-top: 20px;" data-wrapper="messages">
+        <%= render(order.bid_messages) %>
+
+        <div class="col-md-12" style="padding-left: 0px; padding-right: 0px; padding-top: 10px;">
+          <textarea class="form-control" name="text" rows="3" placeholder="Digite sua mensagem"></textarea>
+        </div>
+
+        <%= handlebars "message-template" do %>
+          <%= render "messages/template" %>
+        <% end %>
+
+        <div class="col-md-2 pull-right" style="margin-top: 10px; margin-right: -15px;">
+          <a class="btn btn-sm btn-block btn-primary" data-action="save-message">Enviar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

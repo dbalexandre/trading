@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require handlebars
+//= require lodash
 //= require almond
 //= require bootstrap-sprockets
 //= require_tree .

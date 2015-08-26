@@ -16,7 +16,12 @@
           <b>Data da oferta:</b> <%= I18n.l(@bid.created_at.to_date) %>
         </li>
         <li>
-          <b>Tempo para término da oferta:</b> <%= distance_of_time_in_words_to_now(@bid.created_at + @bid.number_of_days.days) %>
+          <b>Tempo para término da oferta:</b>
+          <% if @bid.created_at + @bid.number_of_days.days > Time.now %>
+            <%= distance_of_time_in_words_to_now(@bid.created_at + @bid.number_of_days.days) %>
+          <% else %>
+            Encerrado
+          <% end %>
         </li>
         <li>
           <b>Quantidade de interessados:</b> <span class="badge"><%= @bid.orders_count %></span>
@@ -28,14 +33,16 @@
           <b>Estado:</b> <%= @bid.state %>
         </li>
         <li>
-          <b>Quantidade:</b> <%= @bid.quantity %> KG
+          <b>Quantidade:</b> <%= number_with_precision(@bid.quantity, precision: 2) %> KG
         </li>
         <li>
           <b>Preço para retirar:</b> <%= number_to_currency(@bid.price, unit: "R$/KG") %>
         </li>
       </ul>
 
-      <%= f.button :submit, "Comprar", class: "btn-primary" %>
+      <% if @bid.created_at + @bid.number_of_days.days > Time.now %>
+        <%= f.button :submit, "Comprar", class: "btn-primary" %>
+      <% end %>
     <% end %>
   </div>
 </div>
