@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:index]
 
   namespace :admin do
+    resources :bids, only: [:index]
     resources :users, only: [:index]
   end
 

@@ -7,7 +7,7 @@ class Bid < ActiveRecord::Base
   has_many :orders, dependent: :destroy
 
   enumerize :area_type, in: [:urban, :rural]
-  enumerize :payment_type, in: [:cash, :forward]
+  enumerize :payment_type, in: [:cash, :forward], predicates: true
   enumerize :product, in: [:corn, :soy, :wheat, :sorghum]
   enumerize :status, in: [:available, :progress, :purchased, :paid, :released, :delivered], default: :available, predicates: true
 
@@ -22,12 +22,12 @@ class Bid < ActiveRecord::Base
 
   scope :most_recent, -> { order(created_at: :desc) }
 
-  def forward?
-    payment_type.to_s.inquiry.forward?
-  end
-
-  def rural_area?
-    area_type.to_s.inquiry.rural?
+  def seller
+    if user.company?
+      user.corporate_name
+    else
+      user.full_name
+    end
   end
 
   def progress!
