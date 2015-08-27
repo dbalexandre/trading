@@ -11,4 +11,12 @@ class Order < ActiveRecord::Base
   validates :status, presence: true
 
   scope :most_recent, -> { order(created_at: :desc) }
+
+  def buyer
+    if user.company?
+      user.corporate_name
+    else
+      user.full_name
+    end
+  end
 end
