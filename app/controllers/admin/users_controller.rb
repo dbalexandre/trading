@@ -1,8 +1,7 @@
 module Admin
-  class UsersController < ApplicationController
-    layout "dashboard"
-
+  class UsersController < BaseController
     def index
+      authorize :admin, :index?
       @users = User.order(:id)
     end
   end

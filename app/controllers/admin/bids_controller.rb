@@ -1,8 +1,7 @@
 module Admin
-  class BidsController < ApplicationController
-    layout "dashboard"
-
+  class BidsController < BaseController
     def index
+      authorize :admin, :index?
       @bids = Bid.most_recent
     end
   end
