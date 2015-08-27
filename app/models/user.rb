@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   has_many :bids, dependent: :destroy
   has_many :orders, dependent: :destroy
 
-  enumerize :personable_type, in: [:company, :individual], default: :individual
+  enumerize :personable_type, in: [:company, :individual], default: :individual, predicates: true
   enumerize :role, in: [:admin, :regular], default: :regular
 
   validates :personable_type, :phone, :role, presence: true
@@ -21,15 +21,5 @@ class User < ActiveRecord::Base
 
   def full_name
     "#{first_name} #{last_name}"
-  end
-
-  private
-
-  def company?
-    personable_type.to_s.inquiry.company?
-  end
-
-  def individual?
-    personable_type.to_s.inquiry.individual?
   end
 end
