@@ -11,8 +11,9 @@ class User < ActiveRecord::Base
   has_many :orders, dependent: :destroy
 
   enumerize :personable_type, in: [:company, :individual], default: :individual
+  enumerize :role, in: [:admin, :regular], default: :regular
 
-  validates :personable_type, :phone, presence: true
+  validates :personable_type, :phone, :role, presence: true
   validates :first_name, :last_name, presence: true, if: :individual?
   validates :corporate_name, presence: true, if: :company?
   validates :cpf, cpf: true, if: :individual?

@@ -31,3 +31,6 @@ pt-BR:
       personable_type:
         company: "Jurídica"
         individual: "Física"
+      role:
+        admin: "Administrador"
+        regular: "Usuário"
