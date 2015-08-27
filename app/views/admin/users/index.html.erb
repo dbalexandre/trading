@@ -1,0 +1,27 @@
+<table class="table table-hover">
+  <thead>
+    <caption>Usuários</caption>
+    <tr>
+      <th>#</th>
+      <th>Perfil</th>
+      <th>Tipo</th>
+      <th>Nome/Razão Social</th>
+      <th>CPF/CNPJ</th>
+      <th>E-mail</th>
+      <th>Telefone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <th scope="row"><%= user.id %></th>
+        <td><%= user.role_text %></td>
+        <td><%= user.personable_type_text %></td>
+        <td><%= user.company? ? user.corporate_name : user.full_name %></td>
+        <td><%= user.company? ? user.cnpj : user.cpf %></td>
+        <td><%= user.email %></td>
+        <td><%= user.phone %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

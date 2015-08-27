@@ -12,5 +12,9 @@ Rails.application.routes.draw do
 
   resources :orders, only: [:index]
 
+  namespace :admin do
+    resources :users, only: [:index]
+  end
+
   root to: "home#index"
 end
